@@ -1,0 +1,38 @@
+.section-pad {
+    padding: 88px 0;
+}
+
+.eyebrow {
+    color: #9b6845;
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    color: #30251f;
+    font-family: Arial, sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.12;
+}
+
+.section-copy {
+    color: #776b62;
+    line-height: 1.8;
+}
+
+.page-hero {
+    padding: 88px 0;
+    background: #e9e1d3;
+}
+
+.page-hero h1 {
+    font-family: 'Arial', serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    color: #30251f;
+}
+
+.soft-section {
+    background: #eee8dc;
+}

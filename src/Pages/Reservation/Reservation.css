@@ -1,0 +1,110 @@
+
+.reservation-hero {
+    background: linear-gradient(90deg, rgba(238,232,220,.96), rgba(238,232,220,.76)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
+
+.reservation-perk {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 17px 0;
+    color: #65584e;
+    font-size: .9rem;
+}
+
+.reservation-perk svg {
+    color: #a66c45;
+    flex: 0 0 auto;
+}
+
+.reservation-photo {
+    position: relative;
+    margin-top: 35px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.reservation-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reservation-photo span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 18px;
+    background: linear-gradient(transparent, rgba(35,25,18,.8));
+    color: #fff8ef;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.reservation-photo span svg {
+    margin-right: 8px;
+    color: #d5a77f;
+}
+
+.reservation-form {
+    padding: 38px;
+    background: #eee8dc;
+    border-radius: 5px;
+}
+
+.reservation-form .form-label {
+    color: #51443b;
+    font-size: .84rem;
+    font-weight: 600;
+}
+
+.reservation-form .form-control,
+.reservation-form .form-select {
+    min-height: 48px;
+    border: 1px solid #d8cdbf;
+    border-radius: 3px;
+    background-color: #fffdf8;
+}
+
+.reservation-form textarea.form-control {
+    min-height: 100px;
+}
+
+.reservation-form .form-submit {
+    background: #3c3028 !important;
+    border: 0 !important;
+    border-radius: 3px !important;
+    padding: 13px 24px !important;
+    font-size: .78rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.reservation-form .form-submit:hover {
+    background: #a66c45 !important;
+}
+
+.reservation-form .form-note {
+    margin: 17px 0 0;
+    color: #8b7b6d;
+    font-size: .75rem;
+}
+
+.reservation-form .success-message {
+    margin: 15px 0;
+    padding: 12px 15px;
+    background: #e2eadf;
+    color: #36563a;
+    border-radius: 3px;
+    font-size: .88rem;
+}
+
+@media (max-width: 575px) {
+    .reservation-form {
+        padding: 24px 18px;
+    }
+}

@@ -1,0 +1,80 @@
+.cafe-nav {
+    background: #fbf9f4;
+    border-bottom: 1px solid #e8e0d4;
+    padding: 13px 0;
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #30251f !important;
+    font-family: 'Arial', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.brand-mark em {
+    color: #a66c45;
+    font-style: normal;
+}
+
+.brand-mark small {
+    display: block;
+    margin-top: 5px;
+    font: 600 .52rem 'Arial', sans-serif;
+    letter-spacing: .17em;
+    color: #8b7b6d;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #3c3028;
+    color: #f4e9d8;
+    font-size: 1.25rem;
+}
+
+.cafe-nav .nav-link {
+    color: #574a40;
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: 12px 8px !important;
+}
+
+.cafe-nav .nav-link:hover,
+.cafe-nav .nav-link.active {
+    color: #a66c45;
+}
+
+.cafe-nav .nav-reserve {
+    background: #3c3028;
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 13px 18px !important;
+}
+
+.cafe-nav .nav-reserve:hover {
+    background: #a66c45;
+}
+
+.cafe-nav .nav-reserve svg {
+    margin-left: 7px;
+    font-size: .7rem;
+}
+
+@media (max-width: 991px) {
+    .cafe-nav .navbar-collapse {
+        padding-top: 14px;
+    }
+
+    .cafe-nav .nav-reserve {
+        display: inline-block;
+        margin-top: 7px;
+    }
+}
