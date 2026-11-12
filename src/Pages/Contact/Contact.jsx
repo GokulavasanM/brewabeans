@@ -11,18 +11,33 @@ export default function Contact() {
   const [validated, setValidated] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault()
+
     const form = event.currentTarget
+
     if (form.checkValidity() === false) {
-      event.stopPropagation()
-      setSubmitted(false)
+        event.stopPropagation()
     } else {
-      setSubmitted(true)
-      form.reset()
+        const formData = new FormData(form)
+
+        const contactDetails = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            topic: formData.get('topic'),
+            message: formData.get('message')
+        }
+
+        console.log("Contact Form Submitted:", contactDetails)
+
+        setSubmitted(true)
+        form.reset()
+        setValidated(false)
+        return
     }
+
     setValidated(true)
-  }
+}
 
   return (
     <div className="contact-page">
@@ -43,15 +58,84 @@ export default function Contact() {
               <div className="contact-form-wrap">
                 <p className="eyebrow">SEND A MESSAGE</p><h2 className="section-title">Let's talk.</h2>
                 {submitted && <div className="success-message" role="status">Thanks for reaching out! Your demo message has been received.</div>}
-                <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                  <Row className="g-3">
-                    <Col md={6}><Form.Group><Form.Label>Your name *</Form.Label><Form.Control required type="text" placeholder="Enter your name" /></Form.Group></Col>
-                    <Col md={6}><Form.Group><Form.Label>Email address *</Form.Label><Form.Control required type="email" placeholder="name@example.com" /></Form.Group></Col>
-                    <Col xs={12}><Form.Group><Form.Label>What's this about? *</Form.Label><Form.Select required defaultValue=""><option value="" disabled>Select a topic</option><option>Menu enquiry</option><option>Event or catering</option><option>Feedback</option><option>Something else</option></Form.Select></Form.Group></Col>
-                    <Col xs={12}><Form.Group><Form.Label>Your message *</Form.Label><Form.Control required as="textarea" rows={5} placeholder="Write your message here..." /></Form.Group></Col>
-                    <Col xs={12}><Button type="submit" className="form-submit">Send message</Button></Col>
-                  </Row>
-                </Form>
+                
+<Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <Row className="g-3">
+
+        <Col md={6}>
+            <Form.Group>
+                <Form.Label>Your name *</Form.Label>
+                <Form.Control
+                    required
+                    name="name"
+                    type="text"
+                    placeholder="Enter your name"
+                    minLength={2}
+                />
+                <Form.Control.Feedback type="invalid">
+                    Please enter your name (at least 2 characters).
+                </Form.Control.Feedback>
+            </Form.Group>
+        </Col>
+
+        <Col md={6}>
+            <Form.Group>
+                <Form.Label>Email address *</Form.Label>
+                <Form.Control
+                    required
+                    name="email"
+                    type="email"
+                    placeholder="name@example.com"
+                />
+                <Form.Control.Feedback type="invalid">
+                    Please enter a valid email address.
+                </Form.Control.Feedback>
+            </Form.Group>
+        </Col>
+
+        <Col xs={12}>
+            <Form.Group>
+                <Form.Label>What's this about? *</Form.Label>
+                <Form.Select required  name="topic"
+                defaultValue="">
+                    <option value="" disabled>Select a topic</option>
+                    <option>Menu enquiry</option>
+                    <option>Event or catering</option>
+                    <option>Feedback</option>
+                    <option>Something else</option>
+                </Form.Select>
+                <Form.Control.Feedback type="invalid">
+                    Please select a topic.
+                </Form.Control.Feedback>
+            </Form.Group>
+        </Col>
+
+        <Col xs={12}>
+            <Form.Group>
+                <Form.Label>Your message *</Form.Label>
+                <Form.Control
+                    required
+                    name="message"
+                    as="textarea"
+                    rows={5}
+                    placeholder="Write your message here..."
+                    minLength={10}
+                />
+                <Form.Control.Feedback type="invalid">
+                    Please enter at least 10 characters.
+                </Form.Control.Feedback>
+            </Form.Group>
+        </Col>
+
+        <Col xs={12}>
+            <Button type="submit" className="form-submit">
+                Send message
+            </Button>
+        </Col>
+
+    </Row>
+</Form>
+
                 <p className="form-note"></p>
               </div>
             </Col>
